@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title #{title} - My Site
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      h1 Node, Express, Stylus and Jade
+    .container
+      .main-content
+        block content
+      .sidebar
+        block sidebar
+    footer
+      p You are running a website on node with Express, Jade and Stylus

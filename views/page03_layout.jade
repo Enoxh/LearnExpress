@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    link(class="cssdeck", rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css")
+    title #{title} - Stylus and Jade
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      h1 Jade and Stylus plus Bootstrap
+    .container
+      .main-content
+        block content
+    
+    footer
+       p You are running a website on node with Express, Jade and Stylus plus Bootstrap

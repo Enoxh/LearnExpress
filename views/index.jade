@@ -1,0 +1,41 @@
+extend layout_index
+
+block content
+  p
+    | Welcome to your Express website.
+    | On the surface this looks like a normal website.
+    | That's because this is a web server serving HTML web pages. 
+    | You're just using Node and Express instead of for example Apache.
+    
+  p
+    | On the other hand...
+    | The way this HTML page is constructed on the back end is very different 
+    | from what you are used to when it comes to building and serving a standard HTML page.
+  br
+  P
+    | This development method uses several tools including Stylus and Jade. 
+  P    
+    | #[a(href="http://stylus-lang.com") Stylus] is a new way to generate CSS.  
+  P   
+    |  #[a(href="http://jade-lang.com") Jade] is a templating engine.
+  br
+  hr
+  P
+    | If you try to think of Jade and Stylus as regular HTML, CSS and JS, minus the angle brackets, curly braces and semi colons. 
+    | You'll be well on your way!
+    
+     
+
+block sidebar
+  .widget
+    h1 Get Started!
+      p
+        | Read up on Jade and Stylus
+        | 
+
+      p
+        | Open the views folder
+        | Check out index.jade and layout.jade. that's the page you are reading right now!
+      P
+        |Crazy, right? #[a(href="/page02") NEXT>>]
+

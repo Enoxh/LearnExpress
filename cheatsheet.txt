@@ -1,0 +1,309 @@
+
+Built off of http://www.clock.co.uk/blog/a-simple-website-in-nodejs-with-express-jade-and-stylus
+
+
+
+Unpack the Zip file to a project folder.
+
+Open the project folder in your commmand line.
+
+Run this command in console to install the app dependancies:
+
+DO NOT TYPE THE $ it means command line reference. 
+
+$ npm install
+
+
+All dependencies will be downloaded by npm to node_modules folder.
+
+Run this command in console to start the node server:
+
+$ node app.js
+
+Open http://localhost:3000 in your browser to access basic Express Site.
+
+---------------------------------------------------
+Jade is a template engine for node and express
+
+Jade   http://jade-lang.com/  
+
+http://jade-lang.com/tutorial/
+
+Jade can be used just as a short hand for HTML.
+
+See jade at work in the views folder.
+
+
+Jade is whitespace sensitive, so there's no need to close your tags; Jade does that for you. You can also nest tags within other tags just by indenting them.
+-------------------------
+in HTML:
+<div>
+  <address></address><i></i><strong></strong>
+</div>
+-------------------------
+Same thing in Jade:
+
+div
+  address
+  i
+  strong
+  
+--------------------------
+  In HTML:
+  
+  <h1>Welcome to Jade</h1>
+<p>
+  Text can be included in a number of
+  different ways.
+</p>
+<p>
+  This way is shortest if you need big
+  blocks of text spanning multiple
+  lines.
+</p>
+
+ c
+-----------------------
+
+
+Same thing in Jade:
+
+h1 Welcome to Jade
+p
+  | Text can be included in a number of
+  | different ways.
+p.
+  This way is shortest if you need big
+  blocks of text spanning multiple
+  lines.
+  
+  
+  To add attributes you put them in parentheses after the tag name, separated by an optional comma.
+  
+  --------------------------
+  In HTML:
+  
+  <h1 id="title">Welcome to Jade</h1>
+<button data-action="bea" class="btn">Be Awesome</button>
+
+-------------------------
+Same thing in Jade:
+
+h1(id="title") Welcome to Jade
+button(class="btn", data-action="bea").
+  Be Awesome
+  
+  Adding IDs and Classes
+  
+   --------------------------
+  In HTML:
+  
+  <h1 id="title">Welcome to Jade</h1>
+<button data-action="bea" class="btn">Awesome</button>
+
+
+  -------------------------
+Same thing in Jade:
+  
+h1#title Welcome to Jade
+button.btn(data-action="bea") Awesome
+
+
+------------
+
+
+You can also use JS with Jade
+
+var jade = require('jade');
+var fn = jade.compile(jadeTemplate);
+var htmlOutput = fn({
+  maintainer: {
+    name: 'Forbes Lindesay',
+    twitter: '@ForbesLindesay',
+    blog: 'forbeslindesay.co.uk'
+  }
+});
+
+
+     --------------------------
+  In HTML:
+  
+<h1>Maintainer: Forbes Lindesay</h1>
+<table>
+  <tr>
+    <td>Twitter</td>
+    <td>@ForbesLindesay</td>
+  </tr>
+  <tr>
+    <td>Blog</td>
+    <td>forbeslindesay.co.uk</td>
+  </tr>
+</table>
+
+
+  -------------------------
+Same thing in Jade:
+
+h1
+  | Maintainer:
+  = ' ' + maintainer.name
+table
+  tr
+    td Twitter
+    td= maintainer.twitter
+  tr
+    td Blog
+    td= maintainer.blog
+  
+  
+  
+  If you don't want Jade to filter your output, use != instead of =.
+  
+  
+  Setting attributes to JavaScript values
+  
+  
+    --------------------------
+  In HTML:
+  
+<h1 name="Forbes Lindesay">
+  Maintainer: Forbes Lindesay
+</h1>
+<table>
+  <tr>
+    <td style="width: 50%">Twitter</td>
+    <td>@ForbesLindesay</td>
+  </tr>
+  <tr>
+    <td style="width: 50%">Blog</td>
+    <td>forbeslindesay.co.uk</td>
+  </tr>
+</table>
+
+
+  -------------------------
+Same thing in Jade:
+  
+ h1(name=maintainer.name)
+  | Maintainer:
+  = ' ' + maintainer.name
+table
+  tr
+    td(style='width: '+(100/2)+'%').
+      Twitter
+    td= maintainer.twitter
+  tr
+    td(style='width: '+(100/2)+'%').
+      Blog
+    td= maintainer.blog 
+  
+  
+ Loops and Conditionals
+
+You can use if statements to decide what to display depending on various factors - maybe a user is logged in or not, or some content exists or not, or a combination of factors.
+
+Jade's if statements are almost exactly like those present in JavaScript, except the parentheses are optional, and you don't need braces!
+
+
+     --------------------------
+     
+     JS
+     
+     - var user = { name: 'John' }
+if user
+  div.welcomebox
+    // Filtered inline output
+    p.
+      Welcome, #{user.name}
+else
+  div.loginbox
+    form(name="login", action="/login", method="post")
+      input(type="text", name="user")
+      input(type="password", name="pass")
+      input(type="submit", value="login")
+      
+      
+      
+ HTML:
+  
+<div class="welcomebox">
+  <!-- Filtered inline output-->
+  <p>Welcome, John</p>
+</div>
+
+
+  -------------------------
+STYLUS
+
+
+/* Set a basic variable */
+base-font-size = 12px
+
+/* Set a variable based on result of mixin call */
+body-background = invert(#ccc)
+
+/* Set some basic rules */
+body
+    color #333
+    background #fff
+
+/* Nest rules */
+nav
+    margin 10px
+
+    ul
+        list-style-type none
+
+        > li
+            display inline-block
+
+            &.current
+                background-color lightblue
+
+/* Use calculated values */
+div.column
+    margin-right (grid-spacing / 2)
+    margin-top (grid-spacing * 2)
+
+/* Use an already-set value for this element */
+div.center-column
+    width 200px
+    margin-left -(@width / 2)
+
+/* Get styles for this element from the result of a mixin */
+.promo
+    apply-promo-styles()
+    apply-width-center(400px)
+
+/* Iterate over a loop! */
+table
+    for row in 1 2 3 4 5
+        tr:nth-child({row})
+            height: 10px * row
+
+    /* or.... */
+    for row in (1..5)
+        tr:nth-child({row})
+            height: 10px * row
+
+
+/* Import another Stylus stylesheet */
+@import 'links.styl'
+
+/* Extend an existing class */
+.warning
+    @extend .noticeBlock
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

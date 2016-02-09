@@ -1,0 +1,66 @@
+extend page02_layout
+
+block content
+
+
+    p
+        | This example is a static web server that also uses the concept of routes.
+        | A route defines an end point for an HTTP request.
+        | When we type '/' that refers to our root or "home folder". 
+        | It is the root of your app or website.
+        | In package.JSON when we create it using $npm init we define the file that is to act as the 'entrypoint', 
+        | into our app, in this case app.js.
+
+    p
+        | The router dependancy handles creating a connection between a "web page" now really a view object or file(s) 
+        | you want to serve the template engine. 
+        | In this case your Jade template files.
+        | Jade is included in everything along with Stylus by including it as a dependancy 
+        | in package.JSON and then declaring and configuring them inside of app.js
+    P    
+        | These added functionalities are often referred to as "middleware"
+        | We also call these app dependancies.
+    P
+        | In a larger app, these blocks of code in app.js would be separated, 
+        | typically using some variation of MVC.
+
+    br
+
+        
+
+
+    br
+    P
+        | These articles present some solid points on Less vs Sass vs Stylus.
+    P
+        | #[a(href="http://code.tutsplus.com/tutorials/sass-vs-less-vs-stylus-preprocessor-shootout--net-24320") About Preprocessors] 
+    br
+    P
+        | #[a(href="http://webdesign.tutsplus.com/articles/why-i-choose-stylus-and-you-should-too--webdesign-18412") Why Stylus?] 
+
+    P    
+        | Stylus is a new way to generate CSS.  Stylus is like SASS or LESS, they are all CSS preprocessors.
+        | Stylus uses a different form of syntax based on white spaces and tab indentation.
+        | The main goal of this syntax is to remove unnecessary code typing like angle brackets, 
+        | curly brackets, semicolons, etc. This is often called "dry' syntax. 
+
+    P    
+        |  #[a(href="http://jade-lang.com") Jade] is a templating engine. It also uses a "dry" syntax like Stylus.
+    P 
+        | A typical Jade method is to have a layout.jade that blocks out a page. 
+        | These are great because they are reusable templates, 
+        | you invoke them by adding  "extend templatename" at the top of the view.jade file. 
+    br
+    hr
+    P
+        | If you try to think of Jade and Stylus as regular HTML, CSS and JS, 
+        | minus the closing tags, angle brackets, curly braces and semi colons and 
+        | everything else is some sort of JS function.
+        | You'll be well on your way!
+
+    P
+
+        |  #[a.btn.btn-primary(href="/page03")  NEXT>>]
+
+
+

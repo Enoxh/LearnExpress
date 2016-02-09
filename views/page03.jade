@@ -1,0 +1,70 @@
+extend page03_layout
+
+block content
+
+    P   
+        |  If you look at layout02.jade you will see there is a link to a bootstrap CSS cdn.
+         
+
+    P
+        | So this... #[a(href="/")  Home] 
+    P
+        | becomes this... #[a.btn.btn-primary(href="/")  Home]
+        
+    P
+        | by adding .btn.btn-primary 
+        
+    HR
+    
+    P
+        | Notice the html tags are tabbed in once?
+
+
+    P
+        | The pipe | indicates content inside the P tag, it is not a line break.
+        | Notice the pipe | is tabbed in twice?
+        | Now notice that if you don't follow this rule, your code breaks?
+        | You can use any number of spaces/tabs but once you establish say a 
+        | tag as one tab in, you have to follow that rule for all parent tags.
+
+    P
+        | Personally, at this point I was thinking "man this looks amazing 
+        | but I just got really good and closing all my HTML tags and JavaScript
+        | and while I may have dabbled in Python,
+        | why do I need to learn another way of doing the same thing?"
+        
+    P
+        | The answer is you'll want to use this way of coding because it's powerful and clean and elegant.
+        | The good news is you don't have to learn everything at once.
+        | Notice what happens in my code at this point in the page....!
+        | Reference: https://naltatis.github.io/jade-syntax-docs/
+        | Can you make that link work?
+
+    <p>Look! I don't have to use this crazy new way for everything.</p>
+    <p>Old school HTML works just fine!</p>
+    <p>So does old school CSS and even our old pal Bootstrap!</p>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    P
+        | Now let's try to use this stuff! <a href="/page04" class="btn btn-primary" >NEXT</a>
